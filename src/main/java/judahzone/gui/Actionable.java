@@ -1,4 +1,4 @@
-package net.judahzone.gui;
+package judahzone.gui;
 
 import java.awt.event.ActionListener;
 

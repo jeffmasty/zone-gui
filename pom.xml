@@ -3,16 +3,16 @@
   <parent>
     <groupId>net.judahzone</groupId>
     <artifactId>meta-zone</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <relativePath>../meta-zone/pom.xml</relativePath> 
   </parent>
+  
+  
   <artifactId>zone-gui</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <name>zone-gui</name>  
+  <packaging>jar</packaging>
   
   <build>
-  
-  
-  
    <resources>
       <resource>
         <directory>${project.basedir}/resources</directory>
