@@ -3,50 +3,27 @@
   <parent>
     <groupId>net.judahzone</groupId>
     <artifactId>meta-zone</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.3-SNAPSHOT</version>
     <relativePath>../meta-zone/pom.xml</relativePath> 
   </parent>
-  
   
   <artifactId>zone-gui</artifactId>
   <name>zone-gui</name>  
   <packaging>jar</packaging>
   
-  <build>
+  <dependencies>
+    <dependency>
+      <groupId>net.judahzone</groupId>
+      <artifactId>zone-core</artifactId>
+	</dependency>
+  </dependencies>
+
+  <build> <!-- icons -->
    <resources>
       <resource>
         <directory>${project.basedir}/resources</directory>
-<!--        <includes>-->
-<!--          <include>icons/**</include>-->
-<!--        </includes>-->
         </resource>
       </resources>
-  	<plugins>
-       <!-- Compiler plugin WITH Lombok annotation processing -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
-        <configuration>
-          <!-- Stick to source/target props; drop conflicting <release> -->
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
-          <showWarnings>true</showWarnings>
-          <showDeprecation>true</showDeprecation>
-          <compilerArgs>
-            <arg>-parameters</arg>
-          </compilerArgs>
-          <annotationProcessorPaths>
-            <path>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>${lombok.version}</version>
-            </path>
-          </annotationProcessorPaths>
-        </configuration>
-      </plugin>
-      </plugins>
  </build>
   
 </project>

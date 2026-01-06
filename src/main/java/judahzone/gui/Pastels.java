@@ -18,7 +18,7 @@ public interface Pastels {
 	Color BUTTONS = new Color(237, 237, 229);
 
 	Color SHADE = BUTTONS;
-	Color ONTAPE = GREEN;
+	Color ONTAPE = YELLOW;
 	Color DOWNBEAT = alpha(BLUE, 90);
 	Color GRID = MY_GRAY;
 	Color SELECTED = ORANGE;
