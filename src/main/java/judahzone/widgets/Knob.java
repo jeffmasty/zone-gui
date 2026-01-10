@@ -15,7 +15,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 
 import judahzone.gui.Icons;
-import judahzone.gui.Pastels;
 
 /**<a href="https://github.com/mploof/JKnobFancy">From Michael Ploof on Github</a><br/><br/>
 * JFancyKnob.java -
@@ -43,11 +42,13 @@ import judahzone.gui.Pastels;
 public class Knob extends JComponent{
 	private static final long serialVersionUID = -3331634859451614043L;
 
+	private static final Color DEFAULT_KNOB = new Color(236,236,228);
+
 	public static interface KnobListener {
 		void knobChanged(int val);
 	}
 
-	Color knobColor = Pastels.MY_GRAY;
+	Color knobColor = DEFAULT_KNOB;
 	public void setKnobColor(Color c) { this.knobColor = c; }
 	public Color getKnobColor() { return knobColor; }
 
