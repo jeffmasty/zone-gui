@@ -1,6 +1,7 @@
 package judahzone.gui;
 
 import java.awt.AlphaComposite;
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.net.URL;
@@ -36,6 +37,8 @@ public final class Icons {
 
     private static final Map<String, ImageIcon> CACHE = new ConcurrentHashMap<>();
 
+	public static final Dimension THUMB = new Dimension(38, 38);
+
     /**
      * Load an ImageIcon from classpath "icons/<name>".
      * If the resource is missing, return a default UI icon converted to ImageIcon.
@@ -49,6 +52,8 @@ public final class Icons {
         }
         return CACHE.computeIfAbsent(name, Icons::loadIcon);
     }
+
+
 
     private static ImageIcon loadIcon(String name) {
         // try exact name

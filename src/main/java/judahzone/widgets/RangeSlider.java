@@ -20,7 +20,7 @@ import javax.swing.plaf.basic.BasicSliderUI;
 import judahzone.gui.Pastels;
 
 /* Source: https://github.com/ernieyu/Swing-range-slider
- *
+
 The MIT License
 
 Copyright (c) 2010 Ernest Yu. All rights reserved.
@@ -60,34 +60,23 @@ public class RangeSlider extends JSlider {
 	public Colors getColors() { return colors; }
 	public void setColors(Colors colors) {  this.colors = colors; }
 
-    /**
-     * Constructs a RangeSlider with default minimum and maximum values of 0
-     * and 100.
-     */
+    /**Constructs a RangeSlider with default minimum and maximum values of 0 and 100. */
     public RangeSlider() {
         initSlider();
     }
 
-    /**
-     * Constructs a RangeSlider with the specified default minimum and maximum
-     * values.
-     */
+    /**Constructs a RangeSlider with the specified default minimum and maximum */
     public RangeSlider(int min, int max) {
         super(min, max);
         initSlider();
     }
 
-    /**
-     * Initializes the slider by setting default properties.
-     */
+    /**Initializes the slider by setting default properties. */
     private void initSlider() {
         setOrientation(HORIZONTAL);
     }
 
-    /**
-     * Overrides the superclass method to install the UI delegate to draw two
-     * thumbs.
-     */
+    /** Overrides the superclass method to install the UI delegate to draw two thumbs. */
     @Override
     public void updateUI() {
         setUI(new RangeSliderUI(this));
@@ -96,17 +85,13 @@ public class RangeSlider extends JSlider {
         updateLabelUIs();
     }
 
-    /**
-     * Returns the lower value in the range.
-     */
+    /**Returns the lower value in the range. */
     @Override
     public int getValue() {
         return super.getValue();
     }
 
-    /**
-     * Sets the lower value in the range.
-     */
+    /**Sets the lower value in the range. */
     @Override
     public void setValue(int value) {
         int oldValue = getValue();
@@ -124,16 +109,12 @@ public class RangeSlider extends JSlider {
             getMaximum(), getValueIsAdjusting());
     }
 
-    /**
-     * Returns the upper value in the range.
-     */
+    /**Returns the upper value in the range.*/
     public int getUpperValue() {
         return getValue() + getExtent();
     }
 
-    /**
-     * Sets the upper value in the range.
-     */
+    /**Sets the upper value in the range. */
     public void setUpperValue(int value) {
         // Compute new extent.
         int lowerValue = getValue();
@@ -144,10 +125,8 @@ public class RangeSlider extends JSlider {
     }
 
 
-    /**
-     * UI delegate for the RangeSlider component.  RangeSliderUI paints two thumbs,
-     * one for the lower value and one for the upper value.
-     */
+    /**UI delegate for the RangeSlider component.  RangeSliderUI paints two thumbs,
+     * one for the lower value and one for the upper value. */
     class RangeSliderUI extends BasicSliderUI {
 
         /** Location and size of thumb for upper value. */
@@ -160,44 +139,25 @@ public class RangeSlider extends JSlider {
         /** Indicator that determines whether upper thumb is being dragged. */
         private transient boolean upperDragging;
 
-        /**
-         * Constructs a RangeSliderUI for the specified slider component.
-         * @param b RangeSlider
-         */
         public RangeSliderUI(RangeSlider b) {
             super(b);
         }
 
-        /**
-         * Installs this UI delegate on the specified component.
-         */
-        @Override
-        public void installUI(JComponent c) {
+        /**Installs this UI delegate on the specified component. */
+        @Override public void installUI(JComponent c) {
             upperThumbRect = new Rectangle();
             super.installUI(c);
         }
 
-        /**
-         * Creates a listener to handle track events in the specified slider.
-         */
-        @Override
-        protected TrackListener createTrackListener(JSlider slider) {
+        @Override protected TrackListener createTrackListener(JSlider slider) {
             return new RangeTrackListener();
         }
 
-        /**
-         * Creates a listener to handle change events in the specified slider.
-         */
-        @Override
-        protected ChangeListener createChangeListener(JSlider slider) {
+        @Override protected ChangeListener createChangeListener(JSlider slider) {
             return new ChangeHandler();
         }
 
-        /**
-         * Updates the dimensions for both thumbs.
-         */
-        @Override
-        protected void calculateThumbSize() {
+        @Override protected void calculateThumbSize() {
             // Call superclass method for lower thumb size.
             super.calculateThumbSize();
 
@@ -205,11 +165,7 @@ public class RangeSlider extends JSlider {
             upperThumbRect.setSize(thumbRect.width, thumbRect.height);
         }
 
-        /**
-         * Updates the locations for both thumbs.
-         */
-        @Override
-        protected void calculateThumbLocation() {
+        @Override protected void calculateThumbLocation() {
             // Call superclass method for lower thumb location.
             super.calculateThumbLocation();
 
@@ -255,20 +211,12 @@ public class RangeSlider extends JSlider {
             }
         }
 
-        /**
-         * Returns the size of a thumb.
-         */
-        @Override
-        protected Dimension getThumbSize() {
+        @Override protected Dimension getThumbSize() {
             return new Dimension(12, 12);
         }
 
-        /**
-         * Paints the slider.  The selected thumb is always painted on top of the
-         * other thumb.
-         */
-        @Override
-        public void paint(Graphics g, JComponent c) {
+        /** Paints the slider.  The selected thumb is always painted on top of the other */
+        @Override public void paint(Graphics g, JComponent c) {
             super.paint(g, c);
 
             Rectangle clipRect = g.getClipBounds();
@@ -292,11 +240,7 @@ public class RangeSlider extends JSlider {
             }
         }
 
-        /**
-         * Paints the track.
-         */
-        @Override
-        public void paintTrack(Graphics g) {
+        @Override public void paintTrack(Graphics g) {
             // Draw track.
             super.paintTrack(g);
 
@@ -350,18 +294,13 @@ public class RangeSlider extends JSlider {
             }
         }
 
-        /**
-         * Overrides superclass method to do nothing.  Thumb painting is handled
-         * within the <code>paint()</code> method.
-         */
-        @Override
-        public void paintThumb(Graphics g) {
+        /**Overrides superclass method to do nothing.  Thumb painting is handled
+         * within the <code>paint()</code> method. */
+        @Override public void paintThumb(Graphics g) {
             // Do nothing.
         }
 
-        /**
-         * Paints the thumb for the lower value using the specified graphics object.
-         */
+        /**Paints the thumb for the lower value using the specified graphics object. */
         private void paintLowerThumb(Graphics g) {
             Rectangle knobBounds = thumbRect;
             int w = knobBounds.width;
@@ -387,9 +326,7 @@ public class RangeSlider extends JSlider {
             g2d.dispose();
         }
 
-        /**
-         * Paints the thumb for the upper value using the specified graphics object.
-         */
+        /**Paints the thumb for the upper value using the specified graphics object. */
         private void paintUpperThumb(Graphics g) {
             Rectangle knobBounds = upperThumbRect;
             int w = knobBounds.width;
@@ -415,21 +352,15 @@ public class RangeSlider extends JSlider {
             g2d.dispose();
         }
 
-        /**
-         * Returns a Shape representing a thumb.
-         */
         private Shape createThumbShape(int width, int height) {
             // Use circular shape.
             Ellipse2D shape = new Ellipse2D.Double(0, 0, width, height);
             return shape;
         }
 
-        /**
-         * Sets the location of the upper thumb, and repaints the slider.  This is
+        /**Sets the location of the upper thumb, and repaints the slider.  This is
          * called when the upper thumb is dragged to repaint the slider.  The
-         * <code>setThumbLocation()</code> method performs the same task for the
-         * lower thumb.
-         */
+         * <code>setThumbLocation()</code> method performs the same task for the lower thumb. */
         private void setUpperThumbLocation(int x, int y) {
             Rectangle upperUnionRect = new Rectangle();
             upperUnionRect.setBounds(upperThumbRect);
@@ -440,12 +371,9 @@ public class RangeSlider extends JSlider {
             slider.repaint(upperUnionRect.x, upperUnionRect.y, upperUnionRect.width, upperUnionRect.height);
         }
 
-        /**
-         * Moves the selected thumb in the specified direction by a block increment.
-         * This method is called when the user presses the Page Up or Down keys.
-         */
-        @Override
-    	public void scrollByBlock(int direction) {
+        /**Moves the selected thumb in the specified direction by a block increment.
+         * This method is called when the user presses the Page Up or Down keys. */
+        @Override public void scrollByBlock(int direction) {
             synchronized (slider) {
                 int blockIncrement = (slider.getMaximum() - slider.getMinimum()) / 10;
                 if (blockIncrement <= 0 && slider.getMaximum() > slider.getMinimum()) {
@@ -463,12 +391,9 @@ public class RangeSlider extends JSlider {
             }
         }
 
-        /**
-         * Moves the selected thumb in the specified direction by a unit increment.
-         * This method is called when the user presses one of the arrow keys.
-         */
-        @Override
-    	public void scrollByUnit(int direction) {
+        /**Moves the selected thumb in the specified direction by a unit increment.
+         * This method is called when the user presses one of the arrow keys. */
+        @Override public void scrollByUnit(int direction) {
             synchronized (slider) {
                 int delta = 1 * ((direction > 0) ? POSITIVE_SCROLL : NEGATIVE_SCROLL);
 
@@ -482,11 +407,9 @@ public class RangeSlider extends JSlider {
             }
         }
 
-        /**
-         * Listener to handle model change events.  This calculates the thumb
+        /**Listener to handle model change events.  This calculates the thumb
          * locations and repaints the slider if the value change is not caused by
-         * dragging a thumb.
-         */
+         * dragging a thumb. */
         public class ChangeHandler implements ChangeListener {
             @Override
     		public void stateChanged(ChangeEvent arg0) {
@@ -497,9 +420,7 @@ public class RangeSlider extends JSlider {
             }
         }
 
-        /**
-         * Listener to handle mouse movements in the slider track.
-         */
+        /**Handle mouse movements in the slider track. */
         public class RangeTrackListener extends TrackListener {
 
             @Override
@@ -718,7 +639,6 @@ public class RangeSlider extends JSlider {
             }
         }
     }
-
 
 
 }

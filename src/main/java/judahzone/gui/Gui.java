@@ -96,7 +96,7 @@ public interface Gui {
 		}
 	}
 
-	public static interface Mouser extends MouseListener, MouseMotionListener, MouseWheelListener {
+	public static interface Mouse extends MouseListener, MouseMotionListener, MouseWheelListener {
 		@Override default void mouseClicked(MouseEvent e) { }
 		@Override default void mousePressed(MouseEvent e) { }
 		@Override default void mouseReleased(MouseEvent e) { }
@@ -106,5 +106,6 @@ public interface Gui {
 	    @Override default void mouseMoved(MouseEvent e) { }
 	    @Override default void mouseWheelMoved(MouseWheelEvent e) { }
 	}
+
 
 }
