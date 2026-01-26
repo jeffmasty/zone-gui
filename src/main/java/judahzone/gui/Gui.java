@@ -18,6 +18,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -40,13 +41,21 @@ public interface Gui {
 	Font FONT11 = new Font(FACE, Font.PLAIN, 11);
 	Font FONT12 = new Font(FACE, Font.PLAIN, 12);
 	Font BOLD10 = new Font(FACE, Font.BOLD, 10);
-	Font BOLD = new Font(FACE, Font.BOLD, 11);
+	Font BOLD11 = new Font(FACE, Font.BOLD, 11);
 	Font BOLD12 = new Font(FACE, Font.BOLD, 12);
 	Font BOLD13 = new Font(FACE, Font.BOLD, 13);
+	Font BOLD18 = new Font(FACE, Font.BOLD, 18);
 
 	public static JComponent font(JComponent c) {
 		c.setFont(FONT9);
 		return c;
+	}
+
+	public static class Bold extends JLabel {
+		public Bold(String txt) {
+			super(txt);
+			setFont(BOLD11);
+		}
 	}
 
 	static JPanel duo(Component left, Component right) {

@@ -17,7 +17,7 @@ import judahzone.util.RTLogger;
 /**BoomBox — GUI wrapper.  Provides Play and Loop btns, simple gain.
  * Two-way traffic messages down to low-level and up to GUI,
  * filtering for the controls BoomBox manages. */
-public class BoomBox extends JPanel implements PlayAudio, Played {
+public class PlayGui extends JPanel implements PlayAudio, Played {
 
 	private final PlayAudio player;
 	private Played played;
@@ -26,7 +26,7 @@ public class BoomBox extends JPanel implements PlayAudio, Played {
     private final JSlider gainSlider;
     private final JToggleButton loopButton;
 
-	public BoomBox(PlayAudio player, Played played, Dimension SLIDER) {
+	public PlayGui(PlayAudio player, Played played, Dimension SLIDER) {
 		this.player = player;
 		this.played = played;
 		playButton = new JToggleButton("▶️");
@@ -51,8 +51,6 @@ public class BoomBox extends JPanel implements PlayAudio, Played {
 		add(gainSlider);
 		add(loopButton);
 	}
-
-
 
 	@Override
 	public void setRecording(Asset a) {

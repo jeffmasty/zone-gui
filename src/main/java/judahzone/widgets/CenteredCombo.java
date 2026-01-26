@@ -12,9 +12,15 @@ public class CenteredCombo <T> extends JComboBox<T> {
         ((JLabel)getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
     }
 
+    public CenteredCombo(T[] input) {
+		this();
+		for (T item : input)
+			addItem(item);
+    }
+
     public CenteredCombo(ActionListener l, T[] input) {
-    	this();
+    	this(input);
     	addActionListener(l);
     }
-    
+
 }
