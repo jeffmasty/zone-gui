@@ -8,9 +8,9 @@ import javax.swing.JSlider;
 import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
 
-import judahzone.api.Asset;
 import judahzone.api.PlayAudio;
 import judahzone.api.Played;
+import judahzone.data.Asset;
 import judahzone.gui.Gui;
 import judahzone.util.RTLogger;
 

@@ -236,8 +236,7 @@ public class Knob extends JComponent{
 	}
 
 	//~~~~~~~~ Constructors and Initialization ~~~~~~~~//
-	/**@author Jeff Masty
-	 * @param listener receives user knob changes */
+	/**@param listener receives user knob changes */
 	public Knob(KnobListener listener) {
 		this();
 		addListener(listener);
@@ -259,29 +258,6 @@ public class Knob extends JComponent{
 		setMaxVal(100);
 	}
 
-//	public void addListener(KnobListener listener) {
-//		if (listener == null)
-//			return;
-//		addMouseMotionListener(new MouseMotionAdapter() {
-//			 @Override public void mouseDragged(MouseEvent e) {
-//				 listener.knobChanged(getHandle(0).getVal());
-//				 moveHandles(e);
-//			 }
-//		});
-//		addMouseWheelListener(e -> {
-//			int notches = e.getWheelRotation();
-//			int target = 0;
-//			if (notches < 0) {
-//				target = getValue() + 5; // responsive
-//				if (target > getMaxVal()) target = getMaxVal();
-//			}
-//			else {
-//				target = getValue() - 2;
-//				if (target < getMinVal()) target = getMinVal();
-//			}
-//			listener.knobChanged(target);
-//		});
-//	}
 	public void addListener(KnobListener listener) {
 		if (listener == null)
 			return;
@@ -315,11 +291,13 @@ public class Knob extends JComponent{
 	/**
 	 * No initial location constructor that initializes the position
 	 * of the knob to 0 degrees (right).
-	 *
-	  * @param relCenter the center point around which the handles will rotate as fractional values relative to the overall size of the background image.
-	  * 	<br><br>For instance, if the original background image is 100px W x 400 px H and the center of rotation should be at 50px, 100px, this parameter
-	  * 	would be "new Point(0.5, 0,25)". The point of locating the center of rotation in this manner is to ensure that the center of rotation is always
-	  * 	in the same place on the background image regardless of how it is scaled based upon the backgroundWidth parameter.<br>
+	  * @param relCenter the center point around which the handles will rotate as fractional
+	  * values relative to the overall size of the background image.
+	  * 	<br><br>For instance, if the original background image is 100px W x 400 px H and
+	  * the center of rotation should be at 50px, 100px, this parameter
+	  * 	would be "new Point(0.5, 0,25)". The point of locating the center of rotation in this
+	  * manner is to ensure that the center of rotation is always
+	  * 	in the same place on the background image regardless of how it is scaled based upon the backgroundWidth parameter.
 	  * @param relTrackRadius the relative radius as a percent (0.0-1.0) of the overall width of the background image
 	  * @param backgroundIcon the IconImage for the background
 	  * @param backgroundWidth the width of the background. The background image will be scaled proportionally to fit this value
@@ -543,7 +521,8 @@ public class Knob extends JComponent{
 	 @Override
 	public void paint(Graphics g) {
 		// Draw background
-		g.drawImage(backgroundIcon.getImage(), 0, 0, Math.round(backgroundIcon.getIconWidth()*scale), Math.round(backgroundIcon.getIconHeight()*scale), this);
+		g.drawImage(backgroundIcon.getImage(), 0, 0, Math.round(backgroundIcon.getIconWidth()*scale),
+				Math.round(backgroundIcon.getIconHeight()*scale), this);
 
 		// Draw handles
 		for(int i = 0; i < handles.size(); i ++){
