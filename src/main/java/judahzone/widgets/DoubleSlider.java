@@ -11,6 +11,7 @@ public class DoubleSlider extends RangeSlider implements Updateable {
 	private final int upperIdx;
 
 	public DoubleSlider(FX lower, int lowIdx, FX upper, int upperIdx) {
+		super(0, 100, lower.get(lowIdx), upper.get(upperIdx));
 		this.lower = lower;
 		this.lowIdx = lowIdx;
 		this.upper = upper;

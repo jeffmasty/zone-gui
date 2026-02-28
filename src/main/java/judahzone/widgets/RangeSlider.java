@@ -42,7 +42,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-import javax.swing.JSlider;
 */
 /**
  * An extension of JSlider to select a range of values using two thumb controls.
@@ -60,14 +59,11 @@ public class RangeSlider extends JSlider {
 	public Colors getColors() { return colors; }
 	public void setColors(Colors colors) {  this.colors = colors; }
 
-    /**Constructs a RangeSlider with default minimum and maximum values of 0 and 100. */
-    public RangeSlider() {
-        initSlider();
-    }
-
-    /**Constructs a RangeSlider with the specified default minimum and maximum */
-    public RangeSlider(int min, int max) {
+    /**Init values before ChangeListeners added*/
+    public RangeSlider(int min, int max, int lowVal, int highVal) {
         super(min, max);
+        setValue(Math.max(lowVal, min));
+        setUpperValue(Math.min(highVal, max));
         initSlider();
     }
 

@@ -38,7 +38,7 @@ public class PlayGui extends JPanel implements PlayAudio, Played {
 		gainSlider.setToolTipText("Output gain: 0% (silence) .. 100% (unity)");
 		gainSlider.addChangeListener(e -> {
 			float m = gainSlider.getValue() / 100f;
-			player.setEnv(m);
+			player.setAmp(m);
 		});
 		gainSlider.setValue(50); // start at 50% (half / -6dB)
 
@@ -84,8 +84,8 @@ public class PlayGui extends JPanel implements PlayAudio, Played {
 	}
 
 	@Override
-	public void setEnv(float env) {
-		player.setEnv(env);
+	public void setAmp(float env) {
+		player.setAmp(env);
 	}
 
 	@Override
