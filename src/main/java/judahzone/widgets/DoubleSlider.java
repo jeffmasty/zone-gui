@@ -19,6 +19,7 @@ public class DoubleSlider extends RangeSlider implements Updateable {
 		update();
 		addChangeListener(e->fireChange());
 
+
 	}
 
 	private void fireChange() {

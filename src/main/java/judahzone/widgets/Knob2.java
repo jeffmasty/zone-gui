@@ -39,7 +39,7 @@ import judahzone.gui.Icons;
 *
 * @author Michael ploof
 */
-public class Knob extends JComponent{
+public class Knob2 extends JComponent{
 	private static final long serialVersionUID = -3331634859451614043L;
 
 	private static final Color DEFAULT_KNOB = new Color(236,236,228);
@@ -96,7 +96,7 @@ public class Knob extends JComponent{
 		/** The handle icon */
 		ImageIcon icon;
 		/** Reference to the knob object on which the handle is located */
-		Knob thisKnob;
+		Knob2 thisKnob;
 		/** Radius of clickable handle area */
 		int radius;
 		/** Handle location in radians */
@@ -104,11 +104,11 @@ public class Knob extends JComponent{
 		/** Whether the handle is currently clicked */
 		boolean pressedOnSpot;
 
-		private JKnobHandle(double theta, ImageIcon icon, Knob thisKnob){
+		private JKnobHandle(double theta, ImageIcon icon, Knob2 thisKnob){
 			init(theta, icon, thisKnob);
 		}
 
-		private void init(double theta, ImageIcon icon, Knob thisKnob){
+		private void init(double theta, ImageIcon icon, Knob2 thisKnob){
 			this.theta = theta;
 			this.icon = icon;
 			this.pressedOnSpot = false;
@@ -237,25 +237,23 @@ public class Knob extends JComponent{
 
 	//~~~~~~~~ Constructors and Initialization ~~~~~~~~//
 	/**@param listener receives user knob changes */
-	public Knob(KnobListener listener) {
+	public Knob2(KnobListener listener) {
 		this();
 		addListener(listener);
 	}
 
-	public Knob(Color handle) {
+	public Knob2(Color handle) {
 		this();
 		setKnobColor(handle);
 	}
 
-	public Knob() {
+	public Knob2() {
 		ImageIcon knobIcon = Icons.get("knob.png");
 		ImageIcon knobHandle = Icons.get("knobhandle.png");
 		init(200, new Point2D.Double(0.5, 0.5), 0.5, knobIcon, 30, knobHandle);
 		setCwDirection(true);
 		setMinPos(220);
 		setMaxPos(320);
-		setMinVal(0);
-		setMaxVal(100);
 	}
 
 	public void addListener(KnobListener listener) {
@@ -303,7 +301,7 @@ public class Knob extends JComponent{
 	  * @param backgroundWidth the width of the background. The background image will be scaled proportionally to fit this value
 	  * @param handleIcon the default IconImage for the handles
 	 */
-	public Knob(Point2D relCenter, double relTrackRadius,
+	public Knob2(Point2D relCenter, double relTrackRadius,
 			ImageIcon backgroundIcon, int backgroundWidth,
 			ImageIcon handleIcon) {
 		this(0, relCenter, relTrackRadius, backgroundIcon, backgroundWidth,
@@ -317,7 +315,7 @@ public class Knob extends JComponent{
 	  * @param initDeg the initial angle of the pre-populated first handle <br>
 	  * See {@link #JKnobFancy(Point2D, double, ImageIcon, int, ImageIcon)} for other parameters
 	  */
-	 public Knob(double initDeg, Point2D relCenter, double relTrackRadius,
+	 public Knob2(double initDeg, Point2D relCenter, double relTrackRadius,
 			 ImageIcon backgroundIcon, int backgroundWidth,
 			 ImageIcon handleIcon) {
 		 init(initDeg, relCenter, relTrackRadius, backgroundIcon,

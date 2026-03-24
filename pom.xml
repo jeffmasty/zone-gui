@@ -3,7 +3,7 @@
   <parent>
     <groupId>net.judahzone</groupId>
     <artifactId>meta-zone</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.4-SNAPSHOT</version>
     <relativePath>../meta-zone/pom.xml</relativePath> 
   </parent>
   
@@ -16,7 +16,9 @@
       <groupId>net.judahzone</groupId>
       <artifactId>zone-core</artifactId>
 	</dependency>
+
   </dependencies>
+
 
   <build> <!-- icons -->
    <resources>

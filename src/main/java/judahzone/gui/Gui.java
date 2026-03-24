@@ -28,6 +28,7 @@ public interface Gui {
 
 	int STD_HEIGHT = 18;
 	Insets BTN_MARGIN = new Insets(1,1,1,1);
+	Insets BTN_ZERO = new Insets(0,0,0,0);
 	// Insets ZERO_MARGIN = new Insets(0,0,0,0);
 	Border RED = BorderFactory.createLineBorder(Color.RED, 1);
 	Border HIGHLIGHT = BorderFactory.createLineBorder(Color.BLACK, 1);

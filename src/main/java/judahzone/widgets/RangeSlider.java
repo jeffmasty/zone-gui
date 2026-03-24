@@ -236,6 +236,7 @@ public class RangeSlider extends JSlider {
             }
         }
 
+     // Java
         @Override public void paintTrack(Graphics g) {
             // Draw track.
             super.paintTrack(g);
@@ -243,48 +244,38 @@ public class RangeSlider extends JSlider {
             Rectangle trackBounds = trackRect;
 
             if (slider.getOrientation() == JSlider.HORIZONTAL) {
-                // Determine position of selected range by moving from the middle
-                // of one thumb to the other.
+                // existing horizontal code unchanged...
                 int lowerX = thumbRect.x + (thumbRect.width / 2);
                 int upperX = upperThumbRect.x + (upperThumbRect.width / 2);
 
-                // Determine track position.
                 int cy = (trackBounds.height / 2) - 2;
 
-                // Save color and shift position.
                 Color oldColor = g.getColor();
                 g.translate(trackBounds.x, trackBounds.y + cy);
 
-                // Draw selected range.
                 g.setColor(colors.range);
                 for (int y = 0; y <= 3; y++) {
                     g.drawLine(lowerX - trackBounds.x, y, upperX - trackBounds.x, y);
                 }
 
-                // Restore position and color.
                 g.translate(-trackBounds.x, -(trackBounds.y + cy));
                 g.setColor(oldColor);
 
             } else {
-                // Determine position of selected range by moving from the middle
-                // of one thumb to the other.
-                int lowerY = thumbRect.x + (thumbRect.width / 2);
-                int upperY = upperThumbRect.x + (upperThumbRect.width / 2);
+                // Fixed vertical branch: use y positions and heights (was using x/width)
+                int lowerY = thumbRect.y + (thumbRect.height / 2);
+                int upperY = upperThumbRect.y + (upperThumbRect.height / 2);
 
-                // Determine track position.
                 int cx = (trackBounds.width / 2) - 2;
 
-                // Save color and shift position.
                 Color oldColor = g.getColor();
                 g.translate(trackBounds.x + cx, trackBounds.y);
 
-                // Draw selected range.
                 g.setColor(colors.range);
                 for (int x = 0; x <= 3; x++) {
                     g.drawLine(x, lowerY - trackBounds.y, x, upperY - trackBounds.y);
                 }
 
-                // Restore position and color.
                 g.translate(-(trackBounds.x + cx), -trackBounds.y);
                 g.setColor(oldColor);
             }
